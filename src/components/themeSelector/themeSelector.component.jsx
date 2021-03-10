@@ -12,6 +12,7 @@ const ThemeSelector = ({ toggleTheme }) => {
         <S.ThemeSelection
           type='radio'
           name='theme'
+          id='light'
           value='light'
           defaultChecked='true'
           onClick={() => {
@@ -22,6 +23,7 @@ const ThemeSelector = ({ toggleTheme }) => {
         <S.ThemeSelection
           type='radio'
           name='theme'
+          id='sepia'
           value='sepia'
           onClick={() => {
             toggleTheme('sepia');
@@ -31,6 +33,7 @@ const ThemeSelector = ({ toggleTheme }) => {
         <S.ThemeSelection
           type='radio'
           name='theme'
+          id='dark'
           value='dark'
           onClick={() => {
             toggleTheme('dark');

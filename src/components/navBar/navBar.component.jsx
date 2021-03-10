@@ -1,25 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { toggleTheme } from '../../redux/theme/theme.action';
 import ThemeSelector from '../themeSelector/themeSelector.component';
 
 import * as S from './navBar.style';
 
-const NavBar = ({ toggleTheme }) => {
+const NavBar = (props) => {
   return (
     <S.NavBarContainer>
       <S.Logo />
       <S.CompanyName>COWY</S.CompanyName>
+      <S.Login href='/login'>Login</S.Login>
+      <S.Register href='/register'>Register</S.Register>
       <ThemeSelector />
     </S.NavBarContainer>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleTheme: (newTheme) => dispatch(toggleTheme(newTheme)),
-  };
-};
+const mapStateToProps = (state) => ({
+  
+});
 
-export default connect(null, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps)(NavBar);

@@ -6,6 +6,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Components
 import Home from './pages/home/home.component';
+import Login from './pages/login/login.component';
+import Register from './pages/register/register.component';
+import ForgotPassword from './pages/forgotPassword/forgotPassword.component';
+import ResetPassword from './pages/resetPassword/resetPassword.component';
 
 // Theme
 import { lightTheme, sepiaTheme, darkTheme } from './theme/theme';
@@ -35,8 +39,20 @@ function App({ theme }) {
         <GlobalStyle />
         <BrowserRouter>
           <Switch>
-            <Route path='/'>
+            <Route exact path='/'>
               <Home />
+            </Route>
+            <Route exact path='/login'>
+              <Login />
+            </Route>
+            <Route exact path='/register'>
+              <Register />
+            </Route>
+            <Route exact path='/forgotpassword'>
+              <ForgotPassword />
+            </Route>
+            <Route exact path='/resetpassword'>
+              <ResetPassword />
             </Route>
           </Switch>
         </BrowserRouter>

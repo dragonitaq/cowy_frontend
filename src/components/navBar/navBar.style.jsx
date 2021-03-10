@@ -1,5 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ReactComponent as CowyLogo } from '../../assets/logo.svg';
+
+const anchorStyle = css`
+  font-size: 2rem;
+  margin-right: 2rem;
+  text-decoration: none;
+`;
 
 export const NavBarContainer = styled.nav`
   display: flex;
@@ -17,4 +23,12 @@ export const Logo = styled(CowyLogo)`
 
 export const CompanyName = styled.h1`
   font-size: 5rem;
+`;
+
+export const Login = styled.a`
+  ${anchorStyle}
+`;
+
+export const Register = styled.a`
+  ${anchorStyle}
 `;
