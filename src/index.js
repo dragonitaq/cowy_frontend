@@ -13,3 +13,18 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+// import { store, persistor } from './redux/store';
+// import { PersistGate } from 'redux-persist/integration/react';
+
+// <Provider store={store}>
+// {/* BrowserRouter is a component that provide routing functionality.*/}
+// <BrowserRouter>
+//   {/* PersistGate will receive Redux store and also 'rehydrate'(refill) the state whenever app refresh/reopen. */}
+//   <PersistGate persistor={persistor}>
+//     <React.StrictMode>
+//       <App />
+//     </React.StrictMode>
+//   </PersistGate>
+// </BrowserRouter>
+// </Provider>,

@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import * as S from './forgotPassword.style';
 
 export const ForgotPassword = (props) => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target[0].value;
-    // forgot password operation here.
+    axios
+      .post('http://localhost:1337/auth/forgot-password', {
+        email: email,
+      })
+      .then((response) => {
+        setIsSubmitted(true);
+      })
+      .catch((error) => {
+        console.log('An error occurred:', error.response);
+        // REVIEW Better error handling later.
+      });
   };
 
   return (
@@ -25,10 +38,17 @@ export const ForgotPassword = (props) => {
         <S.EmailInput type='email' placeholder='Email' required />
         <S.ForgotPasswordButton type='submit'>Submit</S.ForgotPasswordButton>
       </S.ForgotPasswordForm>
+      {isSubmitted ? (
+        <S.SubmittedMsg>
+          If the email address is valid, you shall receive an email.
+          <br />
+          Please check your inbox.
+        </S.SubmittedMsg>
+      ) : null}
     </S.ForgotPasswordFormWrapper>
   );
 };
 
-const mapDispatchToProps = () => ({});
+const mapStateToProps = () => ({});
 
-export default connect(null, mapDispatchToProps)(ForgotPassword);
+export default connect(mapStateToProps)(ForgotPassword);

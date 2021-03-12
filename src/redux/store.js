@@ -5,7 +5,6 @@ import rootReducer from './root.reducer';
 
 const middlewares = [thunk];
 
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middlewares)));
 
@@ -13,3 +12,11 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middl
 // export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
 export default store;
+
+// import { persistStore } from 'redux-persist';
+
+/* Persistor is the persistent version of our store. */
+// export const persistor = persistStore(store);
+
+/* We export persistedStore just in case we are going to use it in future. */
+// const persistedStore = { store, persistor };

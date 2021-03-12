@@ -1,20 +1,37 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 import * as S from './resetPassword.style';
 
-const ForgotPassword = (props) => {
+const ForgotPassword = () => {
+  const history = useHistory();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const password = e.target[0].value;
     const confirmPassword = e.target[1].value;
 
     if (password !== confirmPassword) {
-      alert("Password doesn't match");
-    } else {
-      alert('Password Matched!');
-      // Update new password operation here.
+      alert("Password don't match");
+      return;
     }
+
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    axios
+      .post('http://localhost:1337/auth/reset-password', {
+        code: code,
+        password: password,
+        passwordConfirmation: confirmPassword,
+      })
+      .then((response) => {
+        history.push('/login');
+      })
+      .catch((error) => {
+        console.log('An error occurred:', error.response);
+        // REVIEW Better error handling later.
+      });
   };
 
   return (
@@ -37,6 +54,4 @@ const ForgotPassword = (props) => {
   );
 };
 
-const mapDispatchToProps = () => ({});
-
-export default connect(null, mapDispatchToProps)(ForgotPassword);
+export default ForgotPassword;

@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { ReactComponent as CowyLogo } from '../../assets/logo.svg';
 
 const anchorStyle = css`
   font-size: 2rem;
   margin-right: 2rem;
   text-decoration: none;
+  text-transform: uppercase;
 `;
 
 export const NavBarContainer = styled.nav`
@@ -25,10 +27,21 @@ export const CompanyName = styled.h1`
   font-size: 5rem;
 `;
 
-export const Login = styled.a`
+export const Login = styled(Link)`
   ${anchorStyle}
 `;
 
-export const Register = styled.a`
+export const Register = styled(Link)`
   ${anchorStyle}
+`;
+
+export const ProfileName = styled.p`
+  ${anchorStyle}
+  cursor: pointer;
+  display: inline-block;
+`;
+export const Logout = styled.p`
+  ${anchorStyle}
+  cursor: pointer;
+  display: inline-block;
 `;

@@ -9,6 +9,7 @@ export const ThemeContainer = styled.div`
 
 export const ThemeTitle = styled.p`
   font-size: 2rem;
+  text-transform: uppercase;
 `;
 
 export const ThemeSelectionContainer = styled.div`

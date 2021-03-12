@@ -4,7 +4,13 @@ import { connect } from 'react-redux';
 import { toggleTheme } from '../../redux/theme/theme.action';
 import * as S from './themeSelector.style';
 
-const ThemeSelector = ({ toggleTheme }) => {
+const ThemeSelector = ({ theme, toggleTheme }) => {
+  /* Solution from this post on SO:
+  https://stackoverflow.com/questions/43079252/react-jsx-dynamic-html-attribute */
+  const light = theme === 'light' ? { defaultChecked: 'true' } : null;
+  const sepia = theme === 'sepia' ? { defaultChecked: 'true' } : null;
+  const dark = theme === 'dark' ? { defaultChecked: 'true' } : null;
+
   return (
     <S.ThemeContainer>
       <S.ThemeTitle>Theme</S.ThemeTitle>
@@ -12,9 +18,9 @@ const ThemeSelector = ({ toggleTheme }) => {
         <S.ThemeSelection
           type='radio'
           name='theme'
-          id='light'
+          id='dark'
           value='light'
-          defaultChecked='true'
+          {...light}
           onClick={() => {
             toggleTheme('light');
           }}
@@ -25,6 +31,7 @@ const ThemeSelector = ({ toggleTheme }) => {
           name='theme'
           id='sepia'
           value='sepia'
+          {...sepia}
           onClick={() => {
             toggleTheme('sepia');
           }}
@@ -35,6 +42,7 @@ const ThemeSelector = ({ toggleTheme }) => {
           name='theme'
           id='dark'
           value='dark'
+          {...dark}
           onClick={() => {
             toggleTheme('dark');
           }}
@@ -45,10 +53,12 @@ const ThemeSelector = ({ toggleTheme }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleTheme: (newTheme) => dispatch(toggleTheme(newTheme)),
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  toggleTheme: (newTheme) => dispatch(toggleTheme(newTheme)),
+});
 
-export default connect(null, mapDispatchToProps)(ThemeSelector);
+const mapStateToProps = (state) => ({
+  theme: state.theme.theme,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ThemeSelector);
