@@ -1,12 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 import * as S from './resetPassword.style';
 
-const ForgotPassword = () => {
-  const history = useHistory();
-
+const ForgotPassword = ({ history }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const password = e.target[0].value;
@@ -54,4 +52,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default withRouter(ForgotPassword);

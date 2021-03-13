@@ -18,14 +18,14 @@ const ThemeSelector = ({ theme, toggleTheme }) => {
         <S.ThemeSelection
           type='radio'
           name='theme'
-          id='dark'
+          id='light'
           value='light'
           {...light}
           onClick={() => {
             toggleTheme('light');
           }}
         />
-        <S.ThemeLabel for='light'>Light</S.ThemeLabel>
+        <S.ThemeLabel htmlFor='light'>Light</S.ThemeLabel>
         <S.ThemeSelection
           type='radio'
           name='theme'
@@ -36,7 +36,7 @@ const ThemeSelector = ({ theme, toggleTheme }) => {
             toggleTheme('sepia');
           }}
         />
-        <S.ThemeLabel for='sepia'>Sepia</S.ThemeLabel>
+        <S.ThemeLabel htmlFor='sepia'>Sepia</S.ThemeLabel>
         <S.ThemeSelection
           type='radio'
           name='theme'
@@ -47,7 +47,7 @@ const ThemeSelector = ({ theme, toggleTheme }) => {
             toggleTheme('dark');
           }}
         />
-        <S.ThemeLabel for='dark'>Dark</S.ThemeLabel>
+        <S.ThemeLabel htmlFor='dark'>Dark</S.ThemeLabel>
       </S.ThemeSelectionContainer>
     </S.ThemeContainer>
   );

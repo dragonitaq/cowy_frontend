@@ -1,16 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { withRouter } from 'react-router-dom';
 
 import { storeUser } from '../../redux/user/user.action';
 
 import * as S from './register.style';
 
-export const Register = ({ storeUser }) => {
-  const history = useHistory();
-
+export const Register = ({ storeUser, history }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target[0].value;
@@ -66,4 +64,4 @@ const mapDispatchToProps = (dispatch) => ({
   storeUser: (user) => dispatch(storeUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(Register);
+export default withRouter(connect(null, mapDispatchToProps)(Register));
