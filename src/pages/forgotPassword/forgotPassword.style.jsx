@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { ReactComponent as CowyLogo } from '../../assets/logo.svg';
 
 export const ForgotPasswordFormWrapper = styled.div`
@@ -36,11 +37,13 @@ export const Title = styled.h2`
 `;
 
 export const EmailInput = styled.input`
+  font-size: 1.8rem;
   min-width: 20rem;
 `;
 
 export const ForgotPasswordButton = styled.button`
   min-width: 10rem;
+  font-size: 1.5rem;
 `;
 
 export const SubmittedMsg = styled.p`
@@ -48,4 +51,20 @@ export const SubmittedMsg = styled.p`
   display: inline-block;
   text-align: center;
   margin-top: 2.5rem;
+`;
+
+export const Back = styled(Link)`
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.secondary};
+  border-radius: 10px;
+  border: solid 1.5px ${({ theme }) => theme.secondary};
+  padding: 0.5rem 1rem;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

@@ -7,7 +7,7 @@ import * as S from './home.style';
 const Home = () => {
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBar />
       <S.HomeContainer>This is the home page.</S.HomeContainer>
     </div>
   );

@@ -14,17 +14,19 @@ export const NavBarContainer = styled.nav`
   padding: 2.5rem;
   align-items: center;
 
-  & :nth-child(3) {
+  & div:nth-child(3) {
     margin-left: auto;
   }
 `;
 
 export const Logo = styled(CowyLogo)`
   width: 3rem;
+  cursor: pointer;
 `;
 
 export const CompanyName = styled.h1`
   font-size: 5rem;
+  cursor: pointer;
 `;
 
 export const Login = styled(Link)`
@@ -38,7 +40,12 @@ export const Register = styled(Link)`
 export const ProfileName = styled.p`
   ${anchorStyle}
   cursor: pointer;
-  display: inline-block;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 20ch;
+  position: relative;
 `;
 export const Logout = styled.p`
   ${anchorStyle}

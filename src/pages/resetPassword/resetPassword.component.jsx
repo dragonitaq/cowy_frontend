@@ -44,9 +44,10 @@ const ForgotPassword = ({ history }) => {
           <S.CompanyName>COWY</S.CompanyName>
         </S.HeaderContainer>
         <S.Title>Reset Password</S.Title>
-        <S.PasswordInput type='password' placeholder='New Password' required />
-        <S.ConfirmPasswordInput type='password' placeholder='Re-enter New Password' required />
+        <S.Input type='password' placeholder='New Password' required />
+        <S.Input type='password' placeholder='Re-enter New Password' required />
         <S.ResetPasswordButton type='submit'>Submit</S.ResetPasswordButton>
+        <S.Back to='/'>Back to home</S.Back>
       </S.ResetPasswordForm>
     </S.ResetPasswordFormWrapper>
   );

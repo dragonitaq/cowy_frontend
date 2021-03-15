@@ -45,6 +45,7 @@ export const ForgotPassword = (props) => {
           Please check your inbox.
         </S.SubmittedMsg>
       ) : null}
+      <S.Back to='/'>Back to home</S.Back>
     </S.ForgotPasswordFormWrapper>
   );
 };

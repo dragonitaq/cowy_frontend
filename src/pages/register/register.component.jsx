@@ -50,11 +50,12 @@ export const Register = ({ storeUser, history }) => {
           <S.CompanyName>COWY</S.CompanyName>
         </S.HeaderContainer>
         <S.Title>Register</S.Title>
-        <S.NameInput type='text' placeholder='Name' required />
-        <S.EmailInput type='email' placeholder='Email' required />
-        <S.PasswordInput type='password' placeholder='Password' required />
-        <S.ConfirmPasswordInput type='password' placeholder='Re-enter Password' required />
+        <S.Input type='text' placeholder='Name' required />
+        <S.Input type='email' placeholder='Email' required />
+        <S.Input type='password' placeholder='Password' required />
+        <S.Input type='password' placeholder='Re-enter Password' required />
         <S.RegisterButton type='submit'>Register</S.RegisterButton>
+        <S.Back to='/'>Back to home</S.Back>
       </S.RegisterForm>
     </S.RegisterFormWrapper>
   );

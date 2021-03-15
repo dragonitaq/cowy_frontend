@@ -42,10 +42,11 @@ export const Login = ({ storeUser, history }) => {
           <S.CompanyName>COWY</S.CompanyName>
         </S.HeaderContainer>
         <S.Title>Login</S.Title>
-        <S.EmailInput type='email' placeholder='Email' required />
-        <S.PasswordInput type='password' placeholder='Password' required />
+        <S.Input type='email' placeholder='Email' required />
+        <S.Input type='password' placeholder='Password' required />
         <S.LoginButton type='submit'>Login</S.LoginButton>
         <S.ForgotPassword href='/forgotpassword'>Forgot Password</S.ForgotPassword>
+        <S.Back to='/'>Back to home</S.Back>
       </S.LoginForm>
     </S.LoginFormWrapper>
   );
