@@ -12,7 +12,7 @@ export const ProfileContainer = styled.div`
 export const ProfileName = styled.p`
   font-size: 2rem;
   text-transform: uppercase;
-  display: block;
+  margin-right: 1rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -22,4 +22,5 @@ export const ProfileName = styled.p`
 export const DownArrow = styled(downArrow)`
   fill: ${({ theme }) => theme.text};
   width: 2rem;
+  height: 2rem;
 `;

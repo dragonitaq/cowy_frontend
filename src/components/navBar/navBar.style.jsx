@@ -11,7 +11,7 @@ const anchorStyle = css`
 
 export const NavBarContainer = styled.nav`
   display: flex;
-  padding: 2.5rem;
+  padding: 0.5rem 2.5rem;
   align-items: center;
 
   & div:nth-child(3) {

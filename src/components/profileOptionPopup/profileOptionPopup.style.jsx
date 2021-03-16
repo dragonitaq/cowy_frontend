@@ -5,8 +5,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: max-content;
   position: absolute;
-  top: 8rem;
+  top: 3rem;
   right: 0;
   background-color: ${({ theme }) => theme.backgroundSecondary};
   border-radius: 8%;
