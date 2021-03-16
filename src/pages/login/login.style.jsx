@@ -41,17 +41,28 @@ export const Title = styled.h2`
 export const Input = styled.input`
   min-width: 20rem;
   font-size: 1.8rem;
+  margin-top: 1rem;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  color: ${({ theme }) => theme.text};
+  border-color: ${({ theme }) => theme.primary};
 `;
 
 export const LoginButton = styled.button`
   font-size: 1.5rem;
   min-width: 10rem;
+  margin-top: 1rem;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  color: ${({ theme }) => theme.text};
+  border-color: ${({ theme }) => theme.primary};
 `;
 
 export const ForgotPassword = styled.a`
   text-decoration: none;
   font-size: 1.5rem;
   margin-top: 1rem;
+  &:visited {
+    color: ${({ theme }) => theme.text};
+  }
 `;
 
 export const Back = styled(Link)`

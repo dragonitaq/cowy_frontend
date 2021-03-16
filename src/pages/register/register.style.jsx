@@ -36,17 +36,21 @@ export const Title = styled.h2`
 `;
 
 export const Input = styled.input`
-  min-width: 20rem;
   font-size: 1.8rem;
-`;
-
-export const EmailInput = styled.input`
   min-width: 20rem;
+  margin-top: 1rem;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  color: ${({ theme }) => theme.text};
+  border-color: ${({ theme }) => theme.primary};
 `;
 
 export const RegisterButton = styled.button`
   min-width: 10rem;
   font-size: 1.5rem;
+  margin-top: 1rem;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  color: ${({ theme }) => theme.text};
+  border-color: ${({ theme }) => theme.primary};
 `;
 
 export const Back = styled(Link)`

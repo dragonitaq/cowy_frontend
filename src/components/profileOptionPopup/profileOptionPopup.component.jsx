@@ -1,17 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 import { removeUser } from '../../redux/user/user.action';
 
 import * as S from './profileOptionPopup.style';
 
-const ProfileOptionPopup = ({ removeUser, history, user }) => {
+const ProfileOptionPopup = ({ removeUser }) => {
   const handleLogout = () => {
     removeUser();
     Cookies.remove('jwt');
-    history.push('/');
   };
   return (
     <S.Container>
@@ -30,12 +28,8 @@ const ProfileOptionPopup = ({ removeUser, history, user }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  user: state.user.user,
-});
-
 const mapDispatchToProps = (dispatch) => ({
   removeUser: () => dispatch(removeUser()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileOptionPopup));
+export default connect(null, mapDispatchToProps)(ProfileOptionPopup);

@@ -39,11 +39,19 @@ export const Title = styled.h2`
 export const EmailInput = styled.input`
   font-size: 1.8rem;
   min-width: 20rem;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  color: ${({ theme }) => theme.text};
+  border-color: ${({ theme }) => theme.primary};
+  margin-top: 1rem;
 `;
 
 export const ForgotPasswordButton = styled.button`
   min-width: 10rem;
   font-size: 1.5rem;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  color: ${({ theme }) => theme.text};
+  border-color: ${({ theme }) => theme.primary};
+  margin-top: 1rem;
 `;
 
 export const SubmittedMsg = styled.p`
