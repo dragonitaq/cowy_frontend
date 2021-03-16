@@ -14,7 +14,7 @@ const ThemeSelector = ({ toggleTheme }) => {
       }}
     >
       <S.ThemeTitle>Theme</S.ThemeTitle>
-      <S.DownArrow />
+      <S.DownArrow showThemeOption={showThemeOption} />
       {showThemeOption ? (
         <S.ThemeOptionPopup>
           <S.ThemeOption

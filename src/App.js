@@ -11,6 +11,7 @@ import Login from './pages/login/login.component';
 import Register from './pages/register/register.component';
 import ForgotPassword from './pages/forgotPassword/forgotPassword.component';
 import ResetPassword from './pages/resetPassword/resetPassword.component';
+import Profile from './pages/profile/profile.component';
 import PageNotFound from './pages/404/404.component';
 
 // Theme
@@ -55,6 +56,9 @@ function App({ theme }) {
             </Route>
             <Route exact path='/resetpassword'>
               <ResetPassword />
+            </Route>
+            <Route exact path='/profile'>
+              <Profile />
             </Route>
             <Route path='/*'>
               <PageNotFound />

@@ -30,4 +30,8 @@ export const ContainerLink = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.secondary};
   }
+
+  &:visited {
+    color: ${({ theme }) => theme.text};
+  }
 `;

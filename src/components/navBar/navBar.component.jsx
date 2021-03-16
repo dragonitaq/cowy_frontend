@@ -33,8 +33,8 @@ const NavBar = ({ removeUser, history }) => {
         (removeUser(),
         (
           <div>
-            <S.Login to='/login'>Login</S.Login>
-            <S.Register to='/register'>Register</S.Register>
+            <S.Anchor to='/login'>Login</S.Anchor>
+            <S.Anchor to='/register'>Register</S.Anchor>
           </div>
         ))
       )}

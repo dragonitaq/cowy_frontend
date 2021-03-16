@@ -15,7 +15,7 @@ const Profile = ({ user }) => {
       }}
     >
       <S.ProfileName>{`${user.username}`}</S.ProfileName>
-      <S.DownArrow />
+      <S.DownArrow showProfileOption={showProfileOption} />
       {showProfileOption ? <ProfileOptionPopup /> : null}
     </S.ProfileContainer>
   );

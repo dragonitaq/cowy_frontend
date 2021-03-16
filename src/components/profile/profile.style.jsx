@@ -5,14 +5,14 @@ export const ProfileContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  margin-right: 2rem;
+  margin-right: 4rem;
   cursor: pointer;
 `;
 
 export const ProfileName = styled.p`
   font-size: 2rem;
   text-transform: uppercase;
-  margin-right: 1rem;
+  margin-right: 0.3rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -23,4 +23,6 @@ export const DownArrow = styled(downArrow)`
   fill: ${({ theme }) => theme.text};
   width: 2rem;
   height: 2rem;
+  transform: ${({ showProfileOption }) => (showProfileOption ? 'rotate(180deg)' : 'rotate(0deg)')};
+  transition: transform 0.3s;
 `;

@@ -4,9 +4,12 @@ import { ReactComponent as CowyLogo } from '../../assets/logo.svg';
 
 const anchorStyle = css`
   font-size: 2rem;
-  margin-right: 2rem;
+  margin-right: 4rem;
   text-decoration: none;
   text-transform: uppercase;
+  &:visited {
+    color: ${({ theme }) => theme.text};
+  }
 `;
 
 export const NavBarContainer = styled.nav`
@@ -29,26 +32,6 @@ export const CompanyName = styled.h1`
   cursor: pointer;
 `;
 
-export const Login = styled(Link)`
+export const Anchor = styled(Link)`
   ${anchorStyle}
-`;
-
-export const Register = styled(Link)`
-  ${anchorStyle}
-`;
-
-export const ProfileName = styled.p`
-  ${anchorStyle}
-  cursor: pointer;
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 20ch;
-  position: relative;
-`;
-export const Logout = styled.p`
-  ${anchorStyle}
-  cursor: pointer;
-  display: inline-block;
 `;

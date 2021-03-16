@@ -4,7 +4,6 @@ import { ReactComponent as downArrow } from '../../assets/down-arrow.svg';
 export const ThemeContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 2.5rem;
   position: relative;
   cursor: pointer;
 `;
@@ -12,7 +11,7 @@ export const ThemeContainer = styled.div`
 export const ThemeTitle = styled.p`
   font-size: 2rem;
   text-transform: uppercase;
-  margin-right: 1rem;
+  margin-right: 0.3rem;
 `;
 
 export const ThemeOptionPopup = styled.div`
@@ -32,6 +31,14 @@ export const ThemeOptionPopup = styled.div`
   }
 `;
 
+export const DownArrow = styled(downArrow)`
+  fill: ${({ theme }) => theme.text};
+  width: 2rem;
+  height: 2rem;
+  transform: ${({ showThemeOption }) => (showThemeOption ? 'rotate(180deg)' : 'rotate(0deg)')};
+  transition: transform 0.3s;
+`;
+
 export const ThemeOption = styled.p`
   color: ${({ theme }) => theme.text};
   font-size: 2rem;
@@ -43,10 +50,4 @@ export const ThemeOption = styled.p`
   &:hover {
     color: ${({ theme }) => theme.secondary};
   }
-`;
-
-export const DownArrow = styled(downArrow)`
-  fill: ${({ theme }) => theme.text};
-  width: 2rem;
-  height: 2rem;
 `;
