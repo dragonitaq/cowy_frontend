@@ -12,6 +12,7 @@ import Register from './pages/register/register.component';
 import ForgotPassword from './pages/forgotPassword/forgotPassword.component';
 import ResetPassword from './pages/resetPassword/resetPassword.component';
 import Profile from './pages/profile/profile.component';
+import Compose from './pages/compose/compose.component';
 import PageNotFound from './pages/404/404.component';
 
 // Theme
@@ -59,6 +60,9 @@ function App({ theme }) {
             </Route>
             <Route exact path='/profile'>
               <Profile />
+            </Route>
+            <Route exact path='/compose'>
+              <Compose />
             </Route>
             <Route path='/*'>
               <PageNotFound />

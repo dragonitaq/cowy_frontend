@@ -60,6 +60,7 @@ export const ForgotPassword = styled.a`
   text-decoration: none;
   font-size: 1.5rem;
   margin-top: 1rem;
+  color: ${({ theme }) => theme.text};
   &:visited {
     color: ${({ theme }) => theme.text};
   }

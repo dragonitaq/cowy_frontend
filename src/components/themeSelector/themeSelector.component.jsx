@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { toggleTheme } from '../../redux/theme/theme.action';
+
 import * as S from './themeSelector.style';
 
 const ThemeSelector = ({ toggleTheme }) => {

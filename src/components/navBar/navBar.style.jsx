@@ -1,16 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as CowyLogo } from '../../assets/logo.svg';
-
-const anchorStyle = css`
-  font-size: 2rem;
-  margin-right: 4rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  &:visited {
-    color: ${({ theme }) => theme.text};
-  }
-`;
 
 export const NavBarContainer = styled.nav`
   display: flex;
@@ -33,5 +23,13 @@ export const CompanyName = styled.h1`
 `;
 
 export const Anchor = styled(Link)`
-  ${anchorStyle}
+  font-size: 2rem;
+  margin-right: 4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.text};
+
+  &:visited {
+    color: ${({ theme }) => theme.text};
+  }
 `;

@@ -15,6 +15,7 @@ const Profile = ({ user }) => {
       }}
     >
       <S.ProfileName>{`${user.username}`}</S.ProfileName>
+      {/* Weird warning msg: React does not recognize the `showProfileOption` prop on a DOM element. 🤷‍♀️*/}
       <S.DownArrow showProfileOption={showProfileOption} />
       {showProfileOption ? <ProfileOptionPopup /> : null}
     </S.ProfileContainer>

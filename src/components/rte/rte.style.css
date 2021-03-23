@@ -1,0 +1,84 @@
+/*
+  _     _       _     _     _____ _
+ | |   (_) __ _| |__ | |_  |_   _| |__   ___ _ __ ___   ___
+ | |   | |/ _` | '_ \| __|   | | | '_ \ / _ \ '_ ` _ \ / _ \
+ | |___| | (_| | | | | |_    | | | | | |  __/ | | | | |  __/
+ |_____|_|\__, |_| |_|\__|   |_| |_| |_|\___|_| |_| |_|\___|
+          |___/
+*/
+
+.editor.light {
+  border: solid 1.5px #f7aa00;
+  height: 30rem;
+  font-size: 1.6rem;
+}
+
+.toolbar.light {
+  border: solid 1.5px #f7aa00;
+}
+
+.toolbar.light .rdw-option-wrapper {
+  background-color: rgb(200, 200, 200);
+}
+.toolbar.light .rdw-block-dropdown {
+  background-color: rgb(200, 200, 200);
+}
+.toolbar.light .rdw-fontsize-dropdown {
+  background-color: rgb(200, 200, 200);
+}
+
+/*
+  ____             _         _____ _
+ / ___|  ___ _ __ (_) __ _  |_   _| |__   ___ _ __ ___   ___
+ \___ \ / _ \ '_ \| |/ _` |   | | | '_ \ / _ \ '_ ` _ \ / _ \
+  ___) |  __/ |_) | | (_| |   | | | | | |  __/ | | | | |  __/
+ |____/ \___| .__/|_|\__,_|   |_| |_| |_|\___|_| |_| |_|\___|
+            |_|
+*/
+
+.editor.sepia {
+  border: solid 1.5px black;
+  height: 30rem;
+  font-size: 1.6rem;
+}
+
+/* I get this class name from inspecting the DOM. */
+.editor.sepia .public-DraftEditorPlaceholder-inner {
+  color: rgb(100, 100, 100);
+}
+
+.toolbar.sepia {
+  border: solid 1.5px black;
+  background-color: #e3ceb9;
+}
+
+/*
+  ____             _      _____ _
+ |  _ \  __ _ _ __| | __ |_   _| |__   ___ _ __ ___   ___
+ | | | |/ _` | '__| |/ /   | | | '_ \ / _ \ '_ ` _ \ / _ \
+ | |_| | (_| | |  |   <    | | | | | |  __/ | | | | |  __/
+ |____/ \__,_|_|  |_|\_\   |_| |_| |_|\___|_| |_| |_|\___|
+
+*/
+
+.editor.dark {
+  border: solid 1.5px #f7aa00;
+  height: 30rem;
+  font-size: 1.6rem;
+}
+
+.toolbar.dark {
+  background-color: black;
+  border: solid 1.5px #f7aa00;
+  color: black;
+}
+
+.toolbar.dark .rdw-option-wrapper {
+  background-color: grey;
+}
+.toolbar.dark .rdw-block-dropdown {
+  background-color: grey;
+}
+.toolbar.dark .rdw-fontsize-dropdown {
+  background-color: grey;
+}
