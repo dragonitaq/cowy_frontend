@@ -13,8 +13,8 @@ const ProfileOptionPopup = ({ removeUser }) => {
   };
   return (
     <S.Container>
-      <S.ContainerLink to='/profile'>My Profile</S.ContainerLink>
-      <S.ContainerLink to='/posts'>My Post</S.ContainerLink>
+      <S.ContainerLink to='/myprofile'>My Profile</S.ContainerLink>
+      <S.ContainerLink to='/myposts'>My Posts</S.ContainerLink>
       <S.ContainerLink to='/compose'>Compose</S.ContainerLink>
       <S.ContainerLink
         to='/'

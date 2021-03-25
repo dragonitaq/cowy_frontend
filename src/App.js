@@ -6,14 +6,15 @@ import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Components
-import Home from './pages/home/home.component';
-import Login from './pages/login/login.component';
-import Register from './pages/register/register.component';
-import ForgotPassword from './pages/forgotPassword/forgotPassword.component';
-import ResetPassword from './pages/resetPassword/resetPassword.component';
-import Profile from './pages/profile/profile.component';
-import Compose from './pages/compose/compose.component';
-import PageNotFound from './pages/404/404.component';
+import Home from './pages/home/home.page';
+import Login from './pages/login/login.page';
+import Register from './pages/register/register.page';
+import ForgotPassword from './pages/forgotPassword/forgotPassword.page';
+import ResetPassword from './pages/resetPassword/resetPassword.page';
+import Profile from './pages/myProfile/myProfile.page';
+import MyPosts from './pages/myPosts/myPosts.page';
+import Compose from './pages/compose/compose.page';
+import PageNotFound from './pages/404/404.page';
 
 // Theme
 import { lightTheme, sepiaTheme, darkTheme } from './theme/theme';
@@ -58,8 +59,11 @@ function App({ theme }) {
             <Route exact path='/resetpassword'>
               <ResetPassword />
             </Route>
-            <Route exact path='/profile'>
+            <Route exact path='/myprofile'>
               <Profile />
+            </Route>
+            <Route exact path='/myposts'>
+              <MyPosts />
             </Route>
             <Route exact path='/compose'>
               <Compose />

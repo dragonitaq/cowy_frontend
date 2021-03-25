@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import NavBar from '../../components/navBar/navBar.component';
 
-import * as S from './profile.style';
+import * as S from './myProfile.style';
 
 const Profile = ({ user }) => {
   const [showEditor, setShowEditor] = useState(false);

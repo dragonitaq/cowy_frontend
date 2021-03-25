@@ -1,14 +1,16 @@
 const initialState = {
   user: null,
+  posts: null,
 };
 
 const user = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'storeUser':
-      return { user: payload };
+      return { ...state, user: payload };
     case 'removeUser':
-      return { user: null };
-
+      return { ...initialState };
+    case 'setUserPosts':
+      return { ...state, posts: payload };
     default:
       return state;
   }

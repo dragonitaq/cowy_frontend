@@ -21,7 +21,7 @@ export const sepiaTheme = {
 
 export const darkTheme = {
   backgroundPrimary: '#000000',
-  backgroundSecondary: '#1f1f1f',
+  backgroundSecondary: '#444444',
   primary: cowyPrimaryColor,
   secondary: cowySecondaryColor,
   text: '#dddddd',
