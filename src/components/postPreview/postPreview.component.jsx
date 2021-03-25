@@ -1,8 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-import * as S from './post.style';
+import * as S from './postPreview.style';
 
-const Post = ({ title, htmlContent, allowEdit, id }) => {
+const PostPreview = ({ title, htmlContent, allowEdit, id, history }) => {
   const dangerousHTML = () => ({
     __html: htmlContent,
   });
@@ -16,7 +17,14 @@ const Post = ({ title, htmlContent, allowEdit, id }) => {
       <S.Content dangerouslySetInnerHTML={dangerousHTML()}></S.Content>
       {allowEdit ? (
         <div>
-          <S.ButtonEdit>Edit</S.ButtonEdit> <S.ButtonRead>Read More</S.ButtonRead>
+          <S.ButtonEdit>Edit</S.ButtonEdit>{' '}
+          <S.ButtonRead
+            onClick={() => {
+              history.push(`/posts/${id}`);
+            }}
+          >
+            Read More
+          </S.ButtonRead>
         </div>
       ) : (
         <S.ButtonRead>Read More</S.ButtonRead>
@@ -25,4 +33,4 @@ const Post = ({ title, htmlContent, allowEdit, id }) => {
   );
 };
 
-export default Post;
+export default withRouter(PostPreview);

@@ -4,7 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 import NavBar from '../../components/navBar/navBar.component';
-import Post from '../../components/post/post.component';
+import PostPreview from '../../components/postPreview/postPreview.component';
 
 import { setUserPosts } from '../../redux/user/user.action';
 
@@ -31,7 +31,7 @@ const Posts = ({ user, posts, setUserPosts }) => {
         <S.Title>My Posts</S.Title>
         <S.PostContainer>
           {posts.map((post) => (
-            <Post title={post.title} htmlContent={post.content} allowEdit={true} id={post.id} key={post.id} />
+            <PostPreview title={post.title} htmlContent={post.content} allowEdit={true} id={post.id} key={post.id} />
           ))}
         </S.PostContainer>
       </S.Container>
