@@ -1,11 +1,16 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { setEditPost } from '../../redux/user/user.action';
 
 import * as S from './postPreview.style';
 
-const PostPreview = ({ title, htmlContent, allowEdit, id, history }) => {
-  const dangerousHTML = () => ({
-    __html: htmlContent,
+const PostPreview = ({ post, allowEdit, history, setEditPost }) => {
+  const { title, content, id } = post;
+
+  const dangerousHTML = (content) => ({
+    __html: content,
   });
 
   // Note that at present, browsers will not execute the script if inserted using the innerHTML property, and likely never will especially as the element is not added to the document.
@@ -14,10 +19,17 @@ const PostPreview = ({ title, htmlContent, allowEdit, id, history }) => {
   return (
     <S.Container>
       <S.Title>{title}</S.Title>
-      <S.Content dangerouslySetInnerHTML={dangerousHTML()}></S.Content>
+      <S.Content dangerouslySetInnerHTML={dangerousHTML(content)}></S.Content>
       {allowEdit ? (
         <div>
-          <S.ButtonEdit>Edit</S.ButtonEdit>{' '}
+          <S.ButtonEdit
+            onClick={() => {
+              setEditPost(post);
+              history.push('/editpost');
+            }}
+          >
+            Edit
+          </S.ButtonEdit>{' '}
           <S.ButtonRead
             onClick={() => {
               history.push(`/posts/${id}`);
@@ -33,4 +45,10 @@ const PostPreview = ({ title, htmlContent, allowEdit, id, history }) => {
   );
 };
 
-export default withRouter(PostPreview);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setEditPost: (post) => dispatch(setEditPost(post)),
+  };
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(PostPreview));

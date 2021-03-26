@@ -11,3 +11,8 @@ export const setUserPosts = (payload) => ({
   type: 'setUserPosts',
   payload,
 });
+
+export const setEditPost = (payload) => ({
+  type: 'setEditPost',
+  payload,
+});

@@ -31,7 +31,7 @@ const Posts = ({ user, posts, setUserPosts }) => {
         <S.Title>My Posts</S.Title>
         <S.PostContainer>
           {posts.map((post) => (
-            <PostPreview title={post.title} htmlContent={post.content} allowEdit={true} id={post.id} key={post.id} />
+            <PostPreview post={post} allowEdit={true} key={post.id} />
           ))}
         </S.PostContainer>
       </S.Container>

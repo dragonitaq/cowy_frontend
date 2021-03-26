@@ -14,6 +14,7 @@ import ResetPassword from './pages/resetPassword/resetPassword.page';
 import Profile from './pages/myProfile/myProfile.page';
 import MyPosts from './pages/myPosts/myPosts.page';
 import Compose from './pages/compose/compose.page';
+import EditPost from './pages/editPost/editPost.page';
 import Post from './pages/post/post.page';
 import PageNotFound from './pages/404/404.page';
 
@@ -68,6 +69,9 @@ function App({ theme }) {
             </Route>
             <Route exact path='/compose'>
               <Compose />
+            </Route>
+            <Route exact path='/editpost'>
+              <EditPost />
             </Route>
             <Route exact path='/posts/:id'>
               <Post />

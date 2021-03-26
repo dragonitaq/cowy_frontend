@@ -13,7 +13,7 @@ const Compose = () => {
       <S.ContainerWrapper>
         <S.Container>
           <S.Title>Compose</S.Title>
-          <Rte content={content} />
+          <Rte content={content} editPost={false} />
         </S.Container>
       </S.ContainerWrapper>
     </div>
