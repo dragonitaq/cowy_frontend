@@ -39,7 +39,13 @@ const PostPreview = ({ post, allowEdit, history, setEditPost }) => {
           </S.ButtonRead>
         </div>
       ) : (
-        <S.ButtonRead>Read More</S.ButtonRead>
+        <S.ButtonRead
+          onClick={() => {
+            history.push(`/posts/${id}`);
+          }}
+        >
+          Read More
+        </S.ButtonRead>
       )}
     </S.Container>
   );
