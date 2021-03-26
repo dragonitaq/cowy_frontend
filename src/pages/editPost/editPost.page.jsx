@@ -12,7 +12,7 @@ const EditPost = ({ editPost }) => {
       <NavBar />
       <S.ContainerWrapper>
         <S.Container>
-          <S.Title>Compose</S.Title>
+          <S.Title>Edit</S.Title>
           <Rte editPost={editPost} />
         </S.Container>
       </S.ContainerWrapper>
