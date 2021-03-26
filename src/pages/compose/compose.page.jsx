@@ -6,14 +6,13 @@ import Rte from '../../components/rte/rte.component';
 import * as S from './compose.style';
 
 const Compose = () => {
-  const content = '';
   return (
     <div>
       <NavBar />
       <S.ContainerWrapper>
         <S.Container>
           <S.Title>Compose</S.Title>
-          <Rte content={content} editPost={false} />
+          <Rte editPost={''} />
         </S.Container>
       </S.ContainerWrapper>
     </div>
