@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 
 import theme from './theme/theme.reducer';
 import user from './user/user.reducer';
+import ui from './ui/ui.reducer';
 
 // Configure how the store should persist on local storage.
 const persistConfig = {
@@ -16,6 +17,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   theme,
   user,
+  ui,
 });
 
 // Then we pass in our config & root reducer to this fn to have it persisted in local storage. This return a persisted version of our root reducer.

@@ -58,6 +58,7 @@ export const LoginButton = styled.button`
 
 export const ForgotPassword = styled.a`
   text-decoration: none;
+  cursor: pointer;
   font-size: 1.5rem;
   margin-top: 1rem;
   color: ${({ theme }) => theme.text};

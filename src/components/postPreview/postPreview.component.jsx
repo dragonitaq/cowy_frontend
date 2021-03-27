@@ -21,32 +21,22 @@ const PostPreview = ({ post, allowEdit, history, setEditPost }) => {
       <S.Title>{title}</S.Title>
       <S.Content dangerouslySetInnerHTML={dangerousHTML(content)}></S.Content>
       {allowEdit ? (
-        <div>
-          <S.ButtonEdit
-            onClick={() => {
-              setEditPost(post);
-              history.push('/editpost');
-            }}
-          >
-            Edit
-          </S.ButtonEdit>{' '}
-          <S.ButtonRead
-            onClick={() => {
-              history.push(`/posts/${id}`);
-            }}
-          >
-            Read More
-          </S.ButtonRead>
-        </div>
-      ) : (
-        <S.ButtonRead
+        <S.ButtonEdit
           onClick={() => {
-            history.push(`/posts/${id}`);
+            setEditPost(post);
+            history.push('/editpost');
           }}
         >
-          Read More
-        </S.ButtonRead>
-      )}
+          Edit
+        </S.ButtonEdit>
+      ) : null}
+      <S.ButtonRead
+        onClick={() => {
+          history.push(`/posts/${id}`);
+        }}
+      >
+        Read More
+      </S.ButtonRead>
     </S.Container>
   );
 };

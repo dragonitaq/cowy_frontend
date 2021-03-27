@@ -35,7 +35,7 @@ export const DownArrow = styled(downArrow)`
   fill: ${({ theme }) => theme.text};
   width: 2rem;
   height: 2rem;
-  transform: ${({ showThemeOption }) => (showThemeOption ? 'rotate(180deg)' : 'rotate(0deg)')};
+  transform: ${({ showThemeOptionPopup }) => (showThemeOptionPopup ? 'rotate(180deg)' : 'rotate(0deg)')};
   transition: transform 0.3s;
 `;
 

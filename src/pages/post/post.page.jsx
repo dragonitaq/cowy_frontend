@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import { useParams } from 'react-router-dom';
 
 import NavBar from '../../components/navBar/navBar.component';
@@ -16,9 +15,8 @@ const Post = () => {
     __html: post.content,
   });
 
-  const cookies = Cookies.get('jwt');
   axios
-    .get(`http://localhost:1337/posts/${id}`, { headers: { Authorization: `Bearer ${cookies}` } })
+    .get(`http://localhost:1337/posts/${id}`)
     .then((response) => {
       setPost(response.data);
     })

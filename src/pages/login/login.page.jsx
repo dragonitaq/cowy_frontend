@@ -45,7 +45,13 @@ export const Login = ({ storeUser, history }) => {
         <S.Input type='email' placeholder='Email' required />
         <S.Input type='password' placeholder='Password' required />
         <S.LoginButton type='submit'>Login</S.LoginButton>
-        <S.ForgotPassword href='/forgotpassword'>Forgot Password</S.ForgotPassword>
+        <S.ForgotPassword
+          onClick={() => {
+            history.push('/forgotpassword');
+          }}
+        >
+          Forgot Password
+        </S.ForgotPassword>
         <S.Back to='/'>Back to home</S.Back>
       </S.LoginForm>
     </S.LoginFormWrapper>

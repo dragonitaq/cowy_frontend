@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
+import { hideThemeOptionPopup, toggleThemeOptionPopup } from '../../redux/ui/ui.action';
 import { toggleTheme } from '../../redux/theme/theme.action';
 
 import * as S from './themeSelector.style';
 
-const ThemeSelector = ({ toggleTheme }) => {
-  const [showThemeOption, setShowThemeOption] = useState(false);
+const ThemeSelector = ({ showThemeOptionPopup, hideThemeOptionPopup, toggleThemeOptionPopup, toggleTheme }) => {
+  const profileOptionPopupClickHandler = (e) => {
+    if (e.target.closest('#themeBtn')) {
+      toggleThemeOptionPopup();
+      return;
+    }
+    hideThemeOptionPopup();
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', profileOptionPopupClickHandler);
+    return () => {
+      document.removeEventListener('click', profileOptionPopupClickHandler);
+    };
+  }, []);
 
   return (
-    <S.ThemeContainer
-      onClick={() => {
-        setShowThemeOption(!showThemeOption);
-      }}
-    >
+    <S.ThemeContainer id='themeBtn'>
       <S.ThemeTitle>Theme</S.ThemeTitle>
-      <S.DownArrow showThemeOption={showThemeOption} />
-      {showThemeOption ? (
+      <S.DownArrow showThemeOptionPopup={showThemeOptionPopup} />
+      {showThemeOptionPopup ? (
         <S.ThemeOptionPopup>
           <S.ThemeOption
             onClick={() => {
@@ -45,8 +55,14 @@ const ThemeSelector = ({ toggleTheme }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleTheme: (newTheme) => dispatch(toggleTheme(newTheme)),
+const mapStateToProps = (state) => ({
+  showThemeOptionPopup: state.ui.showThemeOptionPopup,
 });
 
-export default connect(null, mapDispatchToProps)(ThemeSelector);
+const mapDispatchToProps = (dispatch) => ({
+  toggleTheme: (newTheme) => dispatch(toggleTheme(newTheme)),
+  hideThemeOptionPopup: () => dispatch(hideThemeOptionPopup()),
+  toggleThemeOptionPopup: () => dispatch(toggleThemeOptionPopup()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ThemeSelector);

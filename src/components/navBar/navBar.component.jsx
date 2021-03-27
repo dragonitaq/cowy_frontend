@@ -24,6 +24,7 @@ const NavBar = ({ removeUser, history }) => {
       >
         COWY
       </S.CompanyName>
+      {/* Have to do this initial checking to see if the cookie is expired (browser will auto delete expired cookies). If yes, remove all user data from redux store. */}
       {Cookies.get('jwt') ? (
         <Profile />
       ) : (
