@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as downArrow } from '../../assets/down-arrow.svg';
+import { ReactComponent as DownArrowSVG } from '../../assets/down-arrow.svg';
 
 export const ThemeContainer = styled.div`
   display: flex;
@@ -23,15 +23,20 @@ export const ThemeOptionPopup = styled.div`
   top: 3rem;
   right: 0;
   background-color: ${({ theme }) => theme.backgroundSecondary};
-  border-radius: 8%;
+  border-radius: 10px;
   border: solid 1.5px ${({ theme }) => theme.secondary};
+  z-index: 1;
 
   p:last-of-type {
     border-bottom: none;
+    border-radius: 0 0 8px 8px;
+  }
+  p:first-of-type {
+    border-radius: 8px 8px 0 0;
   }
 `;
 
-export const DownArrow = styled(downArrow)`
+export const DownArrow = styled(DownArrowSVG)`
   fill: ${({ theme }) => theme.text};
   width: 2rem;
   height: 2rem;
@@ -45,9 +50,10 @@ export const ThemeOption = styled.p`
   padding: 0.7rem 2rem;
   width: 100%;
   border-bottom: solid 1.5px ${({ theme }) => theme.secondary};
-  transition: color 0.3s;
+  transition: background-color 0.2s;
 
+  // No idea why there is issue when animate font color. Changed to animate background-color.
   &:hover {
-    color: ${({ theme }) => theme.secondary};
+    background-color: ${({ theme }) => theme.secondary};
   }
 `;

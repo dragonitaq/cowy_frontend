@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as downArrow } from '../../assets/down-arrow.svg';
+import { ReactComponent as DownArrowSVG } from '../../assets/down-arrow.svg';
 
 export const ProfileContainer = styled.div`
   position: relative;
@@ -19,7 +19,7 @@ export const ProfileName = styled.p`
   max-width: 20ch;
 `;
 
-export const DownArrow = styled(downArrow)`
+export const DownArrow = styled(DownArrowSVG)`
   fill: ${({ theme }) => theme.text};
   width: 2rem;
   height: 2rem;
