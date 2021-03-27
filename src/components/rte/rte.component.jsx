@@ -23,16 +23,19 @@ class Rte extends React.Component {
       const editorState = EditorState.createWithContent(contentState);
       this.state = {
         editorState,
+        title: this.props.editPost.title,
       };
     } else {
       this.state = {
         editorState: EditorState.createEmpty(),
+        title: '',
       };
     }
   }
 
   onEditorStateChange = (editorState) => {
     this.setState({
+      ...this.state,
       editorState,
     });
   };

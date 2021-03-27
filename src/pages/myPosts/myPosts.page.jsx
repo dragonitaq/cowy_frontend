@@ -11,7 +11,6 @@ import { setUserPosts } from '../../redux/user/user.action';
 import * as S from './myPosts.style';
 
 const Posts = ({ user, posts, setUserPosts }) => {
-  // componentdidmount - run only once
   useEffect(() => {
     const cookies = Cookies.get('jwt');
     axios
@@ -29,11 +28,7 @@ const Posts = ({ user, posts, setUserPosts }) => {
       <NavBar />
       <S.Container>
         <S.Title>My Posts</S.Title>
-        <S.PostContainer>
-          {posts.map((post) => (
-            <PostPreview post={post} allowEdit={true} key={post.id} />
-          ))}
-        </S.PostContainer>
+        <S.PostContainer>{posts ? posts.map((post) => <PostPreview post={post} allowEdit={true} key={post.id} />) : null}</S.PostContainer>
       </S.Container>
     </div>
   );
