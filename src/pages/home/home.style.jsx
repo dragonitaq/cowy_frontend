@@ -41,6 +41,11 @@ export const SearchButton = styled.button`
   justify-content: center;
 `;
 
+export const NoData = styled.p`
+  font-size: 2.5rem;
+  padding: 2.5rem;
+`;
+
 export const PostPreviewContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(30rem, 1fr));

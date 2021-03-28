@@ -41,6 +41,19 @@ const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
       });
   };
 
+  const responseReturnData = (postsResult) => {
+    if (postsResult.length === 0) {
+      return <S.NoData>Ops... There seem to be no such content.</S.NoData>;
+    }
+    return (
+      <S.PostPreviewContainer>
+        {postsResult.map((post) => (
+          <PostPreview post={post} allowEdit={false} key={post.id} />
+        ))}
+      </S.PostPreviewContainer>
+    );
+  };
+
   return (
     <div>
       <NavBar />
@@ -60,15 +73,7 @@ const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
           />
           <S.SearchButton>Search Title</S.SearchButton>
         </S.Form>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <S.PostPreviewContainer>
-            {postsResult.map((post) => (
-              <PostPreview post={post} allowEdit={false} key={post.id} />
-            ))}
-          </S.PostPreviewContainer>
-        )}
+        {isLoading ? <Loader /> : responseReturnData(postsResult)}
       </S.HomeContainer>
     </div>
   );
