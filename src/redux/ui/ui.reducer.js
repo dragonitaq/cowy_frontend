@@ -1,6 +1,7 @@
 const initialState = {
   showProfileOptionPopup: false,
   showThemeOptionPopup: false,
+  isLoading: false,
 };
 
 const ui = (state = initialState, { type, payload }) => {
@@ -13,6 +14,8 @@ const ui = (state = initialState, { type, payload }) => {
       return { ...state, showThemeOptionPopup: false };
     case 'toggleThemeOptionPopup':
       return { ...state, showThemeOptionPopup: !state.showThemeOptionPopup };
+    case 'toggleLoadingState':
+      return { ...state, isLoading: !state.isLoading };
     default:
       return state;
   }

@@ -11,3 +11,7 @@ export const hideThemeOptionPopup = () => ({
 export const toggleThemeOptionPopup = () => ({
   type: 'toggleThemeOptionPopup',
 });
+
+export const toggleLoadingState = () => ({
+  type: 'toggleLoadingState',
+});
