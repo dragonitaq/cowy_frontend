@@ -14,8 +14,10 @@ const ui = (state = initialState, { type, payload }) => {
       return { ...state, showThemeOptionPopup: false };
     case 'toggleThemeOptionPopup':
       return { ...state, showThemeOptionPopup: !state.showThemeOptionPopup };
-    case 'toggleLoadingState':
-      return { ...state, isLoading: !state.isLoading };
+    case 'setLoadingStateTrue':
+      return { ...state, isLoading: true };
+    case 'setLoadingStateFalse':
+      return { ...state, isLoading: false };
     default:
       return state;
   }

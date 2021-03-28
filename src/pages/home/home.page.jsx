@@ -5,21 +5,21 @@ import { connect } from 'react-redux';
 import NavBar from '../../components/navBar/navBar.component';
 import PostPreview from '../../components/postPreview/postPreview.component';
 import Loader from '../../components/loader/loader.component';
-import { toggleLoadingState } from '../../redux/ui/ui.action';
+import { setLoadingStateTrue, setLoadingStateFalse } from '../../redux/ui/ui.action';
 
 import * as S from './home.style';
 
-const Home = ({ toggleLoadingState, isLoading }) => {
+const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
   const [searchValue, setSearchValue] = useState('');
   const [postsResult, setPostsResult] = useState([]);
 
   useEffect(() => {
-    toggleLoadingState();
+    setLoadingStateTrue();
     axios
       .get('http://localhost:1337/posts')
       .then((response) => {
         console.log(response);
-        toggleLoadingState();
+        setLoadingStateFalse();
         setPostsResult(response.data);
       })
       .catch((error) => {
@@ -28,12 +28,12 @@ const Home = ({ toggleLoadingState, isLoading }) => {
   }, []);
 
   const findPosts = () => {
-    toggleLoadingState();
+    setLoadingStateTrue();
     axios
       .get(`http://localhost:1337/posts/?title_contains=${searchValue}`)
       .then((response) => {
         console.log(response);
-        toggleLoadingState();
+        setLoadingStateFalse();
         setPostsResult(response.data);
       })
       .catch((error) => {
@@ -79,7 +79,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleLoadingState: () => dispatch(toggleLoadingState()),
+  setLoadingStateTrue: () => dispatch(setLoadingStateTrue()),
+  setLoadingStateFalse: () => dispatch(setLoadingStateFalse()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
