@@ -9,6 +9,9 @@ import slugify from 'slugify';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import Loader from '../loader/loader.component';
+import { setLoadingStateTrue, setLoadingStateFalse } from '../../redux/ui/ui.action';
+
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import * as S from './rte.style';
 import './rte.style.css';
@@ -41,6 +44,7 @@ class Rte extends React.Component {
   };
 
   publishPost = () => {
+    this.props.setLoadingStateTrue();
     const content = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
     const cookies = Cookies.get('jwt');
     const title = this.state.title;
@@ -57,14 +61,17 @@ class Rte extends React.Component {
       .post('http://localhost:1337/posts', data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
         console.log(response);
+        this.props.setLoadingStateFalse();
         this.props.history.push(`/myposts`);
       })
       .catch((error) => {
         console.log(error);
+        this.props.setLoadingStateFalse();
       });
   };
 
   updatePost = () => {
+    this.props.setLoadingStateTrue();
     const content = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
     const cookies = Cookies.get('jwt');
     const title = this.state.title;
@@ -80,10 +87,12 @@ class Rte extends React.Component {
       .put(`http://localhost:1337/posts/${this.props.editPost.id}`, data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
         console.log(response);
+        this.props.setLoadingStateFalse();
         this.props.history.push(`/posts/${this.props.editPost.id}`);
       })
       .catch((error) => {
         console.log(error);
+        this.props.setLoadingStateFalse();
       });
   };
 
@@ -123,6 +132,7 @@ class Rte extends React.Component {
           }}
         />
         {this.props.editPost.content ? <S.Publish onClick={this.updatePost}>Save</S.Publish> : <S.Publish onClick={this.publishPost}>Publish</S.Publish>}
+        {this.props.isLoading ? <Loader /> : null}
       </S.Container>
     );
   }
@@ -132,9 +142,15 @@ const mapStateToProps = (state) => {
   return {
     theme: state.theme.theme,
     user: state.user.user,
+    isLoading: state.ui.isLoading,
   };
 };
 
-export default withRouter(connect(mapStateToProps)(Rte));
+const mapDispatchToProps = (dispatch) => ({
+  setLoadingStateTrue: () => dispatch(setLoadingStateTrue()),
+  setLoadingStateFalse: () => dispatch(setLoadingStateFalse()),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Rte));
 
 // Credit to https://github.com/jpuri/react-draft-wysiwyg

@@ -41,7 +41,7 @@ const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
       });
   };
 
-  const responseReturnData = (postsResult) => {
+  const responseToReturnData = (postsResult) => {
     if (postsResult.length === 0) {
       return <S.NoData>Ops... There seem to be no such content.</S.NoData>;
     }
@@ -73,7 +73,7 @@ const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
           />
           <S.SearchButton>Search Title</S.SearchButton>
         </S.Form>
-        {isLoading ? <Loader /> : responseReturnData(postsResult)}
+        {isLoading ? <Loader /> : responseToReturnData(postsResult)}
       </S.HomeContainer>
     </div>
   );

@@ -4,11 +4,13 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { withRouter } from 'react-router-dom';
 
+import Loader from '../../components/loader/loader.component';
+import { setLoadingStateTrue, setLoadingStateFalse } from '../../redux/ui/ui.action';
 import { storeUser } from '../../redux/user/user.action';
 
 import * as S from './register.style';
 
-export const Register = ({ storeUser, history }) => {
+export const Register = ({ storeUser, history, isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target[0].value;
@@ -21,6 +23,7 @@ export const Register = ({ storeUser, history }) => {
       return;
     }
 
+    setLoadingStateTrue();
     axios
       .post('http://localhost:1337/auth/local/register', {
         username: name,
@@ -30,10 +33,12 @@ export const Register = ({ storeUser, history }) => {
       .then((response) => {
         Cookies.set('jwt', response.data.jwt, { expires: 30, sameSite: 'strict' });
         storeUser(response.data.user);
+        setLoadingStateFalse();
         history.push('/');
       })
       .catch((error) => {
         console.log('An error occurred:', error.response);
+        setLoadingStateFalse();
         // REVIEW Better error handling later.
       });
   };
@@ -56,6 +61,7 @@ export const Register = ({ storeUser, history }) => {
         <S.Input type='password' placeholder='Re-enter Password' required />
         <S.RegisterButton type='submit'>Register</S.RegisterButton>
         <S.Back to='/'>Back to home</S.Back>
+        <S.LoaderWrapper>{isLoading ? <Loader /> : null}</S.LoaderWrapper>
       </S.RegisterForm>
     </S.RegisterFormWrapper>
   );
@@ -63,6 +69,12 @@ export const Register = ({ storeUser, history }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   storeUser: (user) => dispatch(storeUser(user)),
+  setLoadingStateTrue: () => dispatch(setLoadingStateTrue()),
+  setLoadingStateFalse: () => dispatch(setLoadingStateFalse()),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Register));
+const mapStateToProps = (state) => ({
+  isLoading: state.ui.isLoading,
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));

@@ -18,3 +18,8 @@ export const PostContainer = styled.div`
   gap: 3rem;
   padding: 2.5rem 5rem;
 `;
+
+export const NoData = styled.p`
+  font-size: 2.5rem;
+  padding: 2.5rem;
+`;

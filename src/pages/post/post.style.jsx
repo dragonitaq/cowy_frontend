@@ -24,3 +24,8 @@ export const Content = styled.div`
   width: 100%;
   font-size: 1.8rem;
 `;
+
+export const NoData = styled.p`
+  font-size: 2.5rem;
+  padding: 2.5rem;
+`;

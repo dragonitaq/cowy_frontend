@@ -68,3 +68,7 @@ export const Back = styled(Link)`
     transform: scale(1.1);
   }
 `;
+
+export const LoaderWrapper = styled.div`
+  position: relative;
+`;
