@@ -31,6 +31,7 @@ const Posts = ({ user, posts, setUserPosts, isLoading, setLoadingStateTrue, setL
   }, []);
 
   const responseToReturnData = (posts) => {
+    if (!posts) return;
     if (posts.length === 0) {
       return <S.NoData>Ops... There seem to be no such content.</S.NoData>;
     }
