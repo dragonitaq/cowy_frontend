@@ -24,7 +24,7 @@ const PostPreview = ({ post, allowEdit, history, setEditPost }) => {
         <S.ButtonEdit
           onClick={() => {
             setEditPost(post);
-            history.push('/editpost');
+            history.push('/edit-post');
           }}
         >
           Edit

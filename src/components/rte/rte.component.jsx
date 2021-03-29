@@ -62,7 +62,7 @@ class Rte extends React.Component {
       .then((response) => {
         console.log(response);
         this.props.setLoadingStateFalse();
-        this.props.history.push(`/myposts`);
+        this.props.history.push(`/my-posts`);
       })
       .catch((error) => {
         console.log(error);

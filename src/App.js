@@ -55,22 +55,22 @@ function App({ theme }) {
             <Route exact path='/register'>
               <Register />
             </Route>
-            <Route exact path='/forgotpassword'>
+            <Route exact path='/forgot-password'>
               <ForgotPassword />
             </Route>
-            <Route exact path='/resetpassword'>
+            <Route exact path='/reset-password'>
               <ResetPassword />
             </Route>
-            <Route exact path='/myprofile'>
+            <Route exact path='/my-profile'>
               <Profile />
             </Route>
-            <Route exact path='/myposts'>
+            <Route exact path='/my-posts'>
               <MyPosts />
             </Route>
             <Route exact path='/compose'>
               <Compose />
             </Route>
-            <Route exact path='/editpost'>
+            <Route exact path='/edit-post'>
               <EditPost />
             </Route>
             <Route exact path='/posts/:id'>

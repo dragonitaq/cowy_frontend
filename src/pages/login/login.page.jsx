@@ -52,7 +52,7 @@ export const Login = ({ storeUser, history, isLoading, setLoadingStateTrue, setL
         <S.LoginButton type='submit'>Login</S.LoginButton>
         <S.ForgotPassword
           onClick={() => {
-            history.push('/forgotpassword');
+            history.push('/forgot-password');
           }}
         >
           Forgot Password
