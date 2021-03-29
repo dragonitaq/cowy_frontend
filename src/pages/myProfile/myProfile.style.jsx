@@ -75,7 +75,7 @@ export const EditorLabel = styled.label`
 `;
 
 export const Msg = styled.p`
-  font-size: 1.5;
+  font-size: 1.8rem;
   margin-top: 1.5rem;
 `;
 
@@ -97,6 +97,7 @@ export const Cancel = styled.p`
 export const PasswordContainer = styled.div`
   display: flex;
   flex-direction: column;
+  /* position: relative; */
 `;
 
 export const PasswordTitle = styled.h2`

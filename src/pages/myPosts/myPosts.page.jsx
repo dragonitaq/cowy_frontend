@@ -14,7 +14,6 @@ import * as S from './myPosts.style';
 
 const Posts = ({ user, posts, setUserPosts, isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
   useEffect(() => {
-    console.log('hit here');
     setLoadingStateTrue();
     const cookies = Cookies.get('jwt');
     axios
