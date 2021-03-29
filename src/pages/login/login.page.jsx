@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -11,6 +11,8 @@ import { storeUser } from '../../redux/user/user.action';
 import * as S from './login.style';
 
 export const Login = ({ storeUser, history, isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
+  const [showWrongDetails, setShowWrongDetails] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoadingStateTrue();
@@ -29,9 +31,9 @@ export const Login = ({ storeUser, history, isLoading, setLoadingStateTrue, setL
         history.push('/');
       })
       .catch((error) => {
-        console.log('An error occurred:', error.response);
+        console.error('An error occurred:', error.response);
         setLoadingStateFalse();
-        // REVIEW Better error handling later.
+        setShowWrongDetails(true);
       });
   };
 
@@ -50,6 +52,7 @@ export const Login = ({ storeUser, history, isLoading, setLoadingStateTrue, setL
         <S.Input type='email' placeholder='Email' required />
         <S.Input type='password' placeholder='Password' required />
         <S.LoginButton type='submit'>Login</S.LoginButton>
+        {showWrongDetails ? <S.WrongDetails>Ops... Wrong email or password</S.WrongDetails> : null}
         <S.ForgotPassword
           onClick={() => {
             history.push('/forgot-password');

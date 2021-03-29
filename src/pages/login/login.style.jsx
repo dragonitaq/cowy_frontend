@@ -67,6 +67,10 @@ export const ForgotPassword = styled.a`
   }
 `;
 
+export const WrongDetails = styled.p`
+  font-size: 1.8rem;
+`;
+
 export const Back = styled(Link)`
   font-size: 1.5rem;
   margin-top: 1rem;
