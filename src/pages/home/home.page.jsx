@@ -15,6 +15,18 @@ const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
 
   useEffect(() => {
     setLoadingStateTrue();
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .get('https://cowy-strapi.herokuapp.com/posts')
+        .then((response) => {
+          setLoadingStateFalse();
+          setPostsResult(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      return;
+    }
     axios
       .get('http://localhost:1337/posts')
       .then((response) => {
@@ -28,6 +40,17 @@ const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
 
   const findPosts = () => {
     setLoadingStateTrue();
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .get(`https://cowy-strapi.herokuapp.com/posts/?title_contains=${searchValue}`)
+        .then((response) => {
+          setLoadingStateFalse();
+          setPostsResult(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
     axios
       .get(`http://localhost:1337/posts/?title_contains=${searchValue}`)
       .then((response) => {

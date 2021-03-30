@@ -1,15 +1,30 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import axios from 'axios';
 
 import * as S from './forgotPassword.style';
 
-export const ForgotPassword = (props) => {
+export const ForgotPassword = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target[0].value;
+
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .post('https://cowy-strapi.herokuapp.com/auth/forgot-password', {
+          email: email,
+        })
+        .then((response) => {
+          setIsSubmitted(true);
+        })
+        .catch((error) => {
+          console.log('An error occurred:', error.response);
+          // REVIEW Better error handling later.
+        });
+      return;
+    }
+
     axios
       .post('http://localhost:1337/auth/forgot-password', {
         email: email,
@@ -50,6 +65,4 @@ export const ForgotPassword = (props) => {
   );
 };
 
-const mapStateToProps = () => ({});
-
-export default connect(mapStateToProps)(ForgotPassword);
+export default ForgotPassword;

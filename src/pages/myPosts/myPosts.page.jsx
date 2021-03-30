@@ -16,6 +16,19 @@ const Posts = ({ user, posts, setUserPosts, isLoading, setLoadingStateTrue, setL
   useEffect(() => {
     setLoadingStateTrue();
     const cookies = Cookies.get('jwt');
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .get(`https://cowy-strapi.herokuapp.com/posts/?users_permissions_user=${user.id}`, { headers: { Authorization: `Bearer ${cookies}` } })
+        .then((response) => {
+          setUserPosts(response.data);
+          setLoadingStateFalse();
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoadingStateFalse();
+        });
+      return;
+    }
     axios
       .get(`http://localhost:1337/posts/?users_permissions_user=${user.id}`, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {

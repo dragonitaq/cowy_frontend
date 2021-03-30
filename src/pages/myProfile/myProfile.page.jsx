@@ -28,6 +28,23 @@ const Profile = ({ user, history, removeUser, storeUser, isLoading, setLoadingSt
       newPassword,
       confirmNewPassword,
     };
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .post('https://cowy-strapi.herokuapp.com/user/change-password', data, { headers: { Authorization: `Bearer ${cookies}` } })
+        .then((response) => {
+          setLoadingStateFalse();
+          Cookies.remove('jwt');
+          // Must push first before removeUser(). Because after removeUser, this component will re-render but there is no user obj anymore.
+          history.push('/login');
+          removeUser();
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoadingStateFalse();
+        });
+      return;
+    }
+
     axios
       .post('http://localhost:1337/user/change-password', data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
@@ -52,6 +69,20 @@ const Profile = ({ user, history, removeUser, storeUser, isLoading, setLoadingSt
       username: name,
       email,
     };
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .put(`https://cowy-strapi.herokuapp.com/users/${user.id}`, data, { headers: { Authorization: `Bearer ${cookies}` } })
+        .then((response) => {
+          setLoadingStateFalse();
+          setShowUpdateSuccess(true);
+          storeUser(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoadingStateFalse();
+        });
+      return;
+    }
     axios
       .put(`http://localhost:1337/users/${user.id}`, data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {

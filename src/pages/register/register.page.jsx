@@ -24,6 +24,26 @@ export const Register = ({ storeUser, history, isLoading, setLoadingStateTrue, s
     }
 
     setLoadingStateTrue();
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .post('https://cowy-strapi.herokuapp.com/auth/local/register', {
+          username: name,
+          email: email,
+          password: password,
+        })
+        .then((response) => {
+          Cookies.set('jwt', response.data.jwt, { expires: 30, sameSite: 'strict' });
+          storeUser(response.data.user);
+          setLoadingStateFalse();
+          history.push('/');
+        })
+        .catch((error) => {
+          console.log('An error occurred:', error.response);
+          setLoadingStateFalse();
+          // REVIEW Better error handling later.
+        });
+      return;
+    }
     axios
       .post('http://localhost:1337/auth/local/register', {
         username: name,

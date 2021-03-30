@@ -56,7 +56,19 @@ class Rte extends React.Component {
       slug: slugify(cleanedTitle),
       users_permissions_user: this.props.user.id,
     };
-
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .post('https://cowy-strapi.herokuapp.com/posts', data, { headers: { Authorization: `Bearer ${cookies}` } })
+        .then((response) => {
+          this.props.setLoadingStateFalse();
+          this.props.history.push(`/my-posts`);
+        })
+        .catch((error) => {
+          console.log(error);
+          this.props.setLoadingStateFalse();
+        });
+      return;
+    }
     axios
       .post('http://localhost:1337/posts', data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
@@ -82,6 +94,19 @@ class Rte extends React.Component {
       slug: slugify(cleanedTitle),
     };
 
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .put(`https://cowy-strapi.herokuapp.com/posts/${this.props.editPost.id}`, data, { headers: { Authorization: `Bearer ${cookies}` } })
+        .then((response) => {
+          this.props.setLoadingStateFalse();
+          this.props.history.push(`/posts/${this.props.editPost.id}`);
+        })
+        .catch((error) => {
+          console.log(error);
+          this.props.setLoadingStateFalse();
+        });
+      return;
+    }
     axios
       .put(`http://localhost:1337/posts/${this.props.editPost.id}`, data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
@@ -116,7 +141,6 @@ class Rte extends React.Component {
           onChange={(e) => {
             this.setState({ ...this.state, title: e.target.value });
           }}
-          // TODO This value will come from props later
           defaultValue={`${this.props.editPost.title || ''}`}
         />
         <Editor

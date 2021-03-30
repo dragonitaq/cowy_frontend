@@ -30,6 +30,19 @@ const Post = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
 
   useEffect(() => {
     setLoadingStateTrue();
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .get(`https://cowy-strapi.herokuapp.com/posts/${id}`)
+        .then((response) => {
+          setPost(response.data);
+          setLoadingStateFalse();
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoadingStateFalse();
+        });
+      return;
+    }
     axios
       .get(`http://localhost:1337/posts/${id}`)
       .then((response) => {

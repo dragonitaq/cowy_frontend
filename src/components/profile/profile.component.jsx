@@ -17,6 +17,7 @@ const Profile = ({ user, showProfileOptionPopup, hideProfileOptionPopup, toggleP
 
   useEffect(() => {
     document.addEventListener('click', profileOptionPopupClickHandler);
+    // Mimic componentWillUnmount
     return () => {
       document.removeEventListener('click', profileOptionPopupClickHandler);
     };

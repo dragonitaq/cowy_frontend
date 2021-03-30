@@ -18,7 +18,26 @@ export const Login = ({ storeUser, history, isLoading, setLoadingStateTrue, setL
     setLoadingStateTrue();
     const email = e.target[0].value;
     const password = e.target[1].value;
-
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .post('http://localhost:1337/auth/local', {
+          identifier: email,
+          password: password,
+        })
+        .then((response) => {
+          // Set cookies with secure:true only during production.
+          Cookies.set('jwt', response.data.jwt, { expires: 30, sameSite: 'strict', secure: true });
+          storeUser(response.data.user);
+          setLoadingStateFalse();
+          history.push('/');
+        })
+        .catch((error) => {
+          console.log('An error occurred:', error.response);
+          setLoadingStateFalse();
+          setShowWrongDetails(true);
+        });
+      return;
+    }
     axios
       .post('http://localhost:1337/auth/local', {
         identifier: email,

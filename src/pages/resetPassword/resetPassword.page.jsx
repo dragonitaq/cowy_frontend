@@ -17,6 +17,22 @@ const ForgotPassword = ({ history }) => {
 
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .post('https://cowy-strapi.herokuapp.com/auth/reset-password', {
+          code: code,
+          password: password,
+          passwordConfirmation: confirmPassword,
+        })
+        .then((response) => {
+          history.push('/login');
+        })
+        .catch((error) => {
+          console.log('An error occurred:', error.response);
+          // REVIEW Better error handling later.
+        });
+      return;
+    }
     axios
       .post('http://localhost:1337/auth/reset-password', {
         code: code,
