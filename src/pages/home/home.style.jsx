@@ -8,11 +8,23 @@ export const HomeContainer = styled.main`
 
 export const Title = styled.h1`
   font-size: 4rem;
+
+  @media (max-width: 450px) {
+    font-size: 3rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Description = styled.h2`
   font-size: 2.2rem;
   margin-top: 1rem;
+
+  @media (max-width: 450px) {
+    font-size: 2rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -26,6 +38,9 @@ export const Search = styled.input`
   color: ${({ theme }) => theme.text};
   border-color: ${({ theme }) => theme.primary};
   margin-right: 0.5rem;
+  @media (max-width: 400px) {
+    width: 20rem;
+  }
 `;
 
 export const SearchButton = styled.button`
@@ -49,6 +64,21 @@ export const NoData = styled.p`
 export const PostPreviewContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(30rem, 1fr));
+  justify-items: center;
+  justify-content: center;
   gap: 3rem;
   padding: 2.5rem 5rem;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, minmax(30rem, 1fr));
+  }
+  @media (max-width: 725px) {
+    padding: 2.5rem 2.5rem;
+    gap: 1.5rem;
+  }
+  @media (max-width: 575px) {
+    grid-template-columns: minmax(30rem, 1fr);
+    padding: 2rem 2rem;
+    gap: 1.5rem;
+  }
 `;

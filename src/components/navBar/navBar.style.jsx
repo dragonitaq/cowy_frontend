@@ -7,6 +7,9 @@ export const NavBarContainer = styled.nav`
   padding: 0.5rem 2.5rem;
   align-items: center;
 
+  @media (max-width: 450px) {
+    padding: 0.5rem 1.5rem;
+  }
   & div:nth-child(3) {
     margin-left: auto;
   }
@@ -15,11 +18,20 @@ export const NavBarContainer = styled.nav`
 export const Logo = styled(CowyLogo)`
   width: 3rem;
   cursor: pointer;
+  @media (max-width: 400px) {
+  width: 2rem;
+  }
 `;
 
 export const CompanyName = styled.h1`
   font-size: 5rem;
   cursor: pointer;
+  @media (max-width: 450px) {
+    font-size: 3.5rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Anchor = styled(Link)`
@@ -31,5 +43,18 @@ export const Anchor = styled(Link)`
 
   &:visited {
     color: ${({ theme }) => theme.text};
+  }
+
+  @media (max-width: 550px) {
+    margin-right: 2rem;
+    font-size: 1.6rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+  @media (max-width: 350px) {
+    font-size: 1.5rem;
+    margin-right: 0.7rem;
   }
 `;

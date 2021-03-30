@@ -40,4 +40,9 @@ export const ContainerLink = styled(Link)`
   &:visited {
     color: ${({ theme }) => theme.text};
   }
+
+  @media (max-width: 450px) {
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+  }
 `;

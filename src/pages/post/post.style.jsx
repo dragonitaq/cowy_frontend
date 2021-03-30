@@ -11,12 +11,20 @@ export const Container = styled.div`
   align-items: center;
   padding: 5rem;
   width: 80rem;
+
+  @media (max-width: 400px) {
+    padding: 3rem;
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 5rem;
   text-align: center;
   margin-bottom: 5rem;
+
+  @media (max-width: 450px) {
+    font-size: 3.5rem;
+  }
 `;
 
 export const Content = styled.div`

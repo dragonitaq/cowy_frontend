@@ -8,9 +8,6 @@ const button = css`
   border-radius: 15px;
   text-align: center;
   padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const MainContainerWrapper = styled.div`
@@ -33,15 +30,20 @@ export const Title = styled.h1`
 
 export const DetailContainer = styled.div`
   display: flex;
-  align-items: center;
   border: solid 1.5px ${(theme) => theme.text};
   border-radius: 15px;
   padding: 2.5rem 2.5rem;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const DetailGrouper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 `;
 
 export const Detail = styled.p`
@@ -50,8 +52,14 @@ export const Detail = styled.p`
 `;
 
 export const Change = styled.p`
-  margin-left: auto;
   ${button}
+  margin-left: auto;
+  height: fit-content;
+
+  @media (max-width: 400px) {
+    margin-left: unset;
+    margin-top: 1.5rem;
+  }
 `;
 
 export const DetailEditorContainer = styled.div`
@@ -60,6 +68,11 @@ export const DetailEditorContainer = styled.div`
   align-items: center;
   border-radius: 15px;
   padding: 2.5rem 2.5rem;
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const DetailEditorGrouper = styled.div`
@@ -84,13 +97,24 @@ export const DetailActionGrouper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 375px) {
+    flex-direction: row;
+    margin-left: unset;
+    margin-top: 1.5rem;
+  }
 `;
 
 export const Save = styled.p`
   ${button}
   margin-bottom: 1rem;
+
+  @media (max-width: 375px) {
+    margin-right: 1rem;
+  }
 `;
 export const Cancel = styled.p`
+  height: fit-content;
   ${button}
 `;
 

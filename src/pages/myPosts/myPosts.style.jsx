@@ -17,6 +17,19 @@ export const PostContainer = styled.div`
   grid-template-columns: repeat(3, minmax(30rem, 1fr));
   gap: 3rem;
   padding: 2.5rem 5rem;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, minmax(30rem, 1fr));
+  }
+  @media (max-width: 725px) {
+    padding: 2.5rem 2.5rem;
+    gap: 1.5rem;
+  }
+  @media (max-width: 575px) {
+    grid-template-columns: minmax(30rem, 1fr);
+    padding: 2rem 2rem;
+    gap: 1.5rem;
+  }
 `;
 
 export const NoData = styled.p`

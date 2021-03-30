@@ -4,8 +4,8 @@ export const Container = styled.div`
   border: solid 2.5px ${({ theme }) => theme.backgroundSecondary};
   border-radius: 15px;
   padding: 1.5rem;
-  height: 30rem;
-  position: relative;
+  height: fit-content;
+  width: fit-content;
 `;
 
 export const Title = styled.h3`
@@ -16,9 +16,30 @@ export const Title = styled.h3`
 `;
 
 export const Content = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   overflow: hidden;
-  max-height: 65%;
+  height: 20rem;
+  width: 30rem;
+
+  @media (max-width: 725px) {
+    width: 27rem;
+  }
+  @media (max-width: 575px) {
+    width: 50rem;
+    height: 19rem;
+  }
+  @media (max-width: 500px) {
+    width: 40rem;
+  }
+  @media (max-width: 450px) {
+    width: 30rem;
+  }
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
 `;
 
 export const ButtonRead = styled.button`
@@ -32,9 +53,7 @@ export const ButtonRead = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+  margin-left: 1rem;
 `;
 
 export const ButtonEdit = styled.button`
@@ -48,7 +67,4 @@ export const ButtonEdit = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  right: 110px;
-  bottom: 10px;
 `;

@@ -18,6 +18,12 @@ export const Input = styled.input`
   background-color: ${({ theme }) => theme.backgroundSecondary};
   color: ${({ theme }) => theme.text};
   border-color: ${({ theme }) => theme.primary};
+  
+  @media (max-width: 450px) {
+    max-width: 70%;
+  }
+  @media (max-width: 400px) {
+  }
 `;
 
 export const Publish = styled.button`

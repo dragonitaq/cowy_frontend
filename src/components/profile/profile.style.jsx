@@ -7,6 +7,10 @@ export const ProfileContainer = styled.div`
   align-items: center;
   margin-right: 4rem;
   cursor: pointer;
+
+  @media (max-width: 450px) {
+    margin-right: 1.5rem;
+  }
 `;
 
 export const ProfileName = styled.p`
@@ -17,6 +21,13 @@ export const ProfileName = styled.p`
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 20ch;
+
+  @media (max-width: 550px) {
+    font-size: 1.6rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const DownArrow = styled(DownArrowSVG)`

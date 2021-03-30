@@ -12,6 +12,13 @@ export const ThemeTitle = styled.p`
   font-size: 2rem;
   text-transform: uppercase;
   margin-right: 0.3rem;
+
+  @media (max-width: 550px) {
+    font-size: 1.6rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const ThemeOptionPopup = styled.div`
@@ -55,5 +62,10 @@ export const ThemeOption = styled.p`
   // No idea why there is issue when animate font color. Changed to animate background-color.
   &:hover {
     background-color: ${({ theme }) => theme.secondary};
+  }
+  
+  @media (max-width: 450px) {
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
   }
 `;
