@@ -60,7 +60,6 @@ class Rte extends React.Component {
     axios
       .post('http://localhost:1337/posts', data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
-        console.log(response);
         this.props.setLoadingStateFalse();
         this.props.history.push(`/my-posts`);
       })
@@ -86,7 +85,6 @@ class Rte extends React.Component {
     axios
       .put(`http://localhost:1337/posts/${this.props.editPost.id}`, data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
-        console.log(response);
         this.props.setLoadingStateFalse();
         this.props.history.push(`/posts/${this.props.editPost.id}`);
       })

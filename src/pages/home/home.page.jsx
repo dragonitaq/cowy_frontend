@@ -18,7 +18,6 @@ const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
     axios
       .get('http://localhost:1337/posts')
       .then((response) => {
-        console.log(response);
         setLoadingStateFalse();
         setPostsResult(response.data);
       })
@@ -32,7 +31,6 @@ const Home = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
     axios
       .get(`http://localhost:1337/posts/?title_contains=${searchValue}`)
       .then((response) => {
-        console.log(response);
         setLoadingStateFalse();
         setPostsResult(response.data);
       })

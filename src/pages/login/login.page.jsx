@@ -31,7 +31,7 @@ export const Login = ({ storeUser, history, isLoading, setLoadingStateTrue, setL
         history.push('/');
       })
       .catch((error) => {
-        console.error('An error occurred:', error.response);
+        console.log('An error occurred:', error.response);
         setLoadingStateFalse();
         setShowWrongDetails(true);
       });

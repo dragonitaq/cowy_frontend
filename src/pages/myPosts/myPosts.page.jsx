@@ -19,7 +19,6 @@ const Posts = ({ user, posts, setUserPosts, isLoading, setLoadingStateTrue, setL
     axios
       .get(`http://localhost:1337/posts/?users_permissions_user=${user.id}`, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
-        console.log(response.data);
         setUserPosts(response.data);
         setLoadingStateFalse();
       })

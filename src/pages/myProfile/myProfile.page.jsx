@@ -31,7 +31,6 @@ const Profile = ({ user, history, removeUser, storeUser, isLoading, setLoadingSt
     axios
       .post('http://localhost:1337/user/change-password', data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
-        console.log(response);
         setLoadingStateFalse();
         Cookies.remove('jwt');
         // Must push first before removeUser(). Because after removeUser, this component will re-render but there is no user obj anymore.
@@ -56,7 +55,6 @@ const Profile = ({ user, history, removeUser, storeUser, isLoading, setLoadingSt
     axios
       .put(`http://localhost:1337/users/${user.id}`, data, { headers: { Authorization: `Bearer ${cookies}` } })
       .then((response) => {
-        console.log(response);
         setLoadingStateFalse();
         setShowUpdateSuccess(true);
         storeUser(response.data);
