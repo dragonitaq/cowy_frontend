@@ -20,7 +20,7 @@ export const Login = ({ storeUser, history, isLoading, setLoadingStateTrue, setL
     const password = e.target[1].value;
     if (process.env.NODE_ENV === 'production') {
       axios
-        .post('http://localhost:1337/auth/local', {
+        .post('https://cowy-strapi.herokuapp.com/auth/local', {
           identifier: email,
           password: password,
         })
