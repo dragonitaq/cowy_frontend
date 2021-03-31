@@ -23,6 +23,7 @@ const Post = ({ isLoading, setLoadingStateTrue, setLoadingStateFalse }) => {
     return (
       <div>
         <S.Title>{post.title}</S.Title>
+        <S.Author>{`Author: ${post.users_permissions_user.username}`}</S.Author>
         <S.Content dangerouslySetInnerHTML={dangerousHTML()}></S.Content>
       </div>
     );

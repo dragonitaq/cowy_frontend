@@ -19,6 +19,7 @@ const PostPreview = ({ post, allowEdit, history, setEditPost }) => {
   return (
     <S.Container>
       <S.Title>{title}</S.Title>
+      <S.Author>{`Author: ${post.users_permissions_user.username}`}</S.Author>
       <S.Content dangerouslySetInnerHTML={dangerousHTML(content)}></S.Content>
       <S.ButtonsWrapper>
         {allowEdit ? (

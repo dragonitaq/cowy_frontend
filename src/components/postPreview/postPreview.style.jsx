@@ -15,6 +15,13 @@ export const Title = styled.h3`
   font-weight: 900;
 `;
 
+export const Author = styled.p`
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+`;
+
 export const Content = styled.div`
   font-size: 1.8rem;
   overflow: hidden;

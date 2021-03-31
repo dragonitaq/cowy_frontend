@@ -20,11 +20,18 @@ export const Container = styled.div`
 export const Title = styled.h1`
   font-size: 5rem;
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 
   @media (max-width: 450px) {
     font-size: 3.5rem;
   }
+`;
+
+export const Author = styled.p`
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
 `;
 
 export const Content = styled.div`
