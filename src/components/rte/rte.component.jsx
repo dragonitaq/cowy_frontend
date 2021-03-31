@@ -119,6 +119,35 @@ class Rte extends React.Component {
       });
   };
 
+  deletePost = () => {
+    this.props.setLoadingStateTrue();
+    const cookies = Cookies.get('jwt');
+
+    if (process.env.NODE_ENV === 'production') {
+      axios
+        .delete(`https://cowy-strapi.herokuapp.com/posts/${this.props.editPost.id}`, { headers: { Authorization: `Bearer ${cookies}` } })
+        .then((response) => {
+          this.props.setLoadingStateFalse();
+          this.props.history.push('/my-posts');
+        })
+        .catch((error) => {
+          console.log(error);
+          this.props.setLoadingStateFalse();
+        });
+      return;
+    }
+    axios
+      .delete(`http://localhost:1337/posts/${this.props.editPost.id}`, { headers: { Authorization: `Bearer ${cookies}` } })
+      .then((response) => {
+        this.props.setLoadingStateFalse();
+        this.props.history.push('/my-posts');
+      })
+      .catch((error) => {
+        console.log(error);
+        this.props.setLoadingStateFalse();
+      });
+  };
+
   addThemeClass = () => {
     switch (this.props.theme) {
       case 'sepia':
@@ -153,7 +182,16 @@ class Rte extends React.Component {
             options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link', 'emoji', 'remove', 'history'],
           }}
         />
-        {this.props.editPost.content ? <S.Publish onClick={this.updatePost}>Save</S.Publish> : <S.Publish onClick={this.publishPost}>Publish</S.Publish>}
+        {this.props.editPost.content ? (
+          <div>
+            <S.Publish onClick={this.updatePost}>Save</S.Publish>
+            <S.Publish onClick={this.deletePost} style={{ 'margin-left': '5px' }}>
+              Delete
+            </S.Publish>
+          </div>
+        ) : (
+          <S.Publish onClick={this.publishPost}>Publish</S.Publish>
+        )}
         {this.props.isLoading ? <Loader /> : null}
       </S.Container>
     );
