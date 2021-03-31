@@ -12,9 +12,11 @@ if (process.env.NODE_ENV === 'production') {
   store = createStore(rootReducer, applyMiddleware(...middlewares));
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+if (process.env.NODE_ENV === 'development') {
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middlewares)));
+  store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middlewares)));
+}
 
 // Persistor is the persistent version of our store.
 export const persistor = persistStore(store);
